@@ -1,0 +1,158 @@
+* {
+  font-style: normal;
+  font-weight: bold;
+}
+body {
+  background-color: rgb(27, 103, 116);
+  padding: 30px;
+  border: 0px solid salmon;
+  justify-content: center;
+}
+h2 {
+  color: azure;
+  margin-left: 50px;
+  font-size: 30px;
+}
+p {
+  color: azure;
+  font-size: 19px;
+}
+
+#contenedorform {
+  width: 500px;
+  margin-left: 20px;
+  margin-top: 10px;
+  background-color: rgb(27, 103, 116);
+  border: 1px solid rgb(27, 103, 116);
+  padding: 10px 0 10px 0;
+  justify-content: center;
+}
+.genero {
+  padding: 10px;
+  color: azure;
+}
+.cajas {
+  padding: 10px;
+  color: azure;
+}
+label {
+  background-color: rgb(242, 209, 180);
+  padding: 5px;
+  margin: 5px;
+  justify-content: center;
+  width: 100px;
+  height: 30px;
+}
+#informacion {
+  background-color: rgb(189, 228, 232);
+  padding: 5px;
+  margin: 5px;
+  justify-content: center;
+  width: 300px;
+  height: 50px;
+  font-size: 13px;
+}
+.ingreso {
+  background-color: rgb(187, 226, 236);
+  padding: 5x;
+  margin: 5px;
+  justify-content: center;
+  width: 199px;
+  height: 30px;
+}
+ #labelcom {
+  background-color: rgb(35, 80, 56);
+  padding: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 190px;
+  height: 30px;
+  font-size: 15px;
+  color: aliceblue;
+}
+#coments{
+  background-color: rgb(185, 233, 226);
+  padding: 10px;
+  margin: 10px;
+  
+  
+}
+.boton {
+  background-color: rgb(27, 72, 145);
+  padding: 5x;
+  margin: 5px;
+  justify-content: center;
+  width: 199px;
+  height: 30px;
+}
+.boton:hover {
+  background-color: rgb(187, 226, 236);
+  opacity: 0.9;
+  animation-name: cambiarColor;
+  animation-duration: 0.5s;
+  animation-delay: 0s;
+}
+@keyframes cambiarColor {
+  from {
+    background-color: rgb(27, 72, 145);
+  }
+  to {
+    background-color: rgb(187, 226, 236);
+  }
+}
+.btnenviar {
+  background-color: rgb(54, 104, 211);
+  padding: 5x;
+  margin: 5px;
+  justify-content: center;
+  width: 199px;
+  height: 30px;
+}
+#estudios {
+  height: 30px;
+}
+#comentarios {
+  display: flex;
+}
+@media (max-width: 500px) {
+  body {
+    padding: 0px;
+  }
+  .ingreso {
+    justify-content: baseline;
+    width: 179px;
+    height: 30px;
+    font-size: 13px;
+  }
+  h2 {
+  font-size: 19px;
+  }
+  .boton {
+    padding: 5x;
+    margin: 5px;
+    justify-content: center;
+    width: 139px;
+    height: 30px;
+  }
+  label {
+    background-color: rgb(242, 209, 180);
+    padding: 5px;
+    margin: 5px;
+    justify-content: center;
+    width:75px;
+    height: 30px;
+    font-size: 13px;
+  }
+  .comentarios {
+    padding: 5px;
+    margin: 5px;
+    justify-content: center;
+  }
+  .btnenviar {
+    padding: 5x;
+    margin: 5px;
+    justify-content: center;
+    width: 139px;
+    height: 30px;
+  }
+}

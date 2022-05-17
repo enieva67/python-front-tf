@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-formularios.css">
+    <title>Formularios</title>
+</head>
+
+<body>
+
+    <h2>Formulario de registro</h2>
+    <form id="contenedorform" action="mostrar.html" target="_blank">
+        <label for="firstname">Nombre: </label><input class="ingreso" size="30" type="text" name="Nombre"
+            placeholder="Ingrese su nombre aqui..."> <br><br>
+        <label for="lastname">Apellido:</label><input class="ingreso" size="30" type="text" name="Apellido"
+            placeholder="Ingrese su apellido aqui..."> <br><br>
+        <label for="street">Direccion:</label><input class="ingreso" type="text" name="Direccion"
+            placeholder="Ingrese su dirección aqui..."> <br><br>
+        <label for="number">Numero:</label><input class="ingreso" type="number" name="numero" placeholder="Ingrese el numero..">
+        <br><br>
+        <label for="city">Ciudad: </label><input class="ingreso" type="text" name="Ciudad" value="C.A.B.A."> <br><br>
+        <label for="zipcode">Código Postal:</label><input class="ingreso" type="text" name="codigo_postal"
+            placeholder="Ingrese codigo postal..."> <br> <br>
+        <label for="telefono">Telefono: </label><input class="ingreso" type="tel" name="telefono"
+            placeholder="ingrese su telefono aqui ...."> <br><br>
+        <label for="BirthDate">Fecha Nacimiento: </label> <input class="ingreso" type="date" name="Fecha_de_nacimiento"> <br><br>
+        <label for="clave">Clave: </label><input class="ingreso" id="contrasena" type="password" name="clave"> <br><br>
+        <label for="clave"> Repetir clave: </label><input class="ingreso"  id="repetir" type="password" name="repeticion_de_clave"> <br><br>
+        <label for="mail">Mail: </label><input class="ingreso" type="email" name="mail"> <br><br>
+          
+
+        <p>Género 
+            <div class="genero"><input type="radio" name="gender" value="hombre" checked> Hombre</div>
+            <div class="genero"><input type="radio" name="gender" value="Mujer"> Mujer</div>
+            <div class="genero"><input type="radio" name="gender" value="Otro"> Otro</div>
+        </p>
+        <p> Temas que les interesaría estudiar: 
+            <div class="cajas"><input class="marque" type="checkbox" name="conocimientos" value="Catolica"> Teosofía</div>
+            <div class="cajas"><input class="marque" type="checkbox" name="conocimientos" value="Protestante">Hatha yoga</div> 
+            <div class="cajas"><input class="marque" type="checkbox" name="conocimientos" value="Hindu">Bakti yoga</div>
+            <div class="cajas"><input class="marque" type="checkbox" name="conocimientos" value="Musulmana">Filosofía</div>
+            <div class="cajas"><input class="marque" type="checkbox" name="conocimientos" value="Sintoismo">Gnana yoga</div>
+            <div class="cajas"><input class="marque"  type="checkbox" name="conocimientos" value="Budismo"> Budhismo</div>
+            <div class="cajas"><input class="marque" type="checkbox" name="conocimientos" value="Agnostico">Tai chi chuan </div>
+            <div class="cajas"><input class="marque" type="checkbox" name="conocimientos" value="Satanismo">Karate</div>
+            <div class="cajas"><input class="marque" type="checkbox" name="conocimientos" value="Ateo">Shaolin arte marcial</div>
+        </p>
+
+        <div>
+        <label for="estudios">Estudios: (Select)</label>
+        <select id="estudios" name="estudios">
+            <option value="primaria">Primaria</option>
+            <option value="secundaria">Secundaria</option>
+            <option value="terciario">Terciario</option>
+            <option value="universitario">Universitario</option>
+            <option value="postgrado">Postgrado</option>
+        </select>
+        </div>
+        <br>
+       <label id="labelcom">Comentarios:</label>
+       <br> 
+        <textarea id="coments" name="comentarios" rows="10" cols="30"></textarea>
+        <br>
+        <div id="informacion" > 
+            Confirme su información personal con el botón 'Confirmar' 
+               para habilitar correctamente el envío de sus datos 
+        </div>
+        <input class="btnenviar" type="submit" value="Enviar" disabled="true">
+        <button class="boton" type="reset">Reset</button> 
+        <p><input class="boton" type="button" value="Confirmar" onClick="mostrar()"></p>                                                                  
+    </form>
+    <p id="envdatos">click en el boton "Enviar" <br> para finalizar registro</p>
+    <script>
+        function mostrar() {
+            let datos_del_cliente  = document.getElementsByClassName('ingreso');
+            for (datos of datos_del_cliente){
+                let valor = datos.value
+                let nombre = datos.name
+                if (valor==''){
+            alert('Es obligatorio ingresar : '+nombre);
+            return;
+                }
+            }
+            let con=document.getElementById('contrasena').value
+            let recon=document.getElementById('repetir').value
+            let boton = document.querySelector('.btnenviar')
+            if (comparar(con,recon)==false){
+                alert('Las contraseñas deben ser iguales');
+                return }
+            if (condicion(con)==false){
+                alert('La contraseña debe tener las siguientes condiciones : \n Empezar con mayúscula, tener al menos un caracter especial y \n tener al menos un numero ');
+                return }
+            if (con.length<7)   {
+                alert('La contraseña debe tener por lo menos 7 caracteres') ;
+                return 
+            } 
+            let texto=document.getElementById('envdatos')
+            texto.innerText='¡Ahora ya puedes enviar tus datos!'
+            boton.disabled=false;
+            boton.value='Envío habilitado';
+            boton.style.backgroundColor='aliceblue'  ; 
+            }
+        function comparar(sta,stb){
+            if(sta===stb){return true}
+            else{return false}
+                    }  
+        function condicion(contrasena) {
+           let patron1=/^[A-Z]/;
+           let patron2=/\W/;
+           let patron3=/\d/;
+           if (patron1.test(contrasena) && patron2.test(contrasena) && patron3.test(contrasena)) return true;
+           else return false;    
+        }           
+    </script>
+
+</body>
+
+</html>
